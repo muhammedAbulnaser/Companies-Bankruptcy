@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+
+
+<body>
+ <div class="login">
+	<h1>Bankruptcy Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" style="width: 400px;" name="Attr1" placeholder="net profit / total assets" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr10" placeholder="equity / total assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr12" placeholder="gross profit / short-term liabilities" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr13" placeholder="(gross profit + depreciation)/sales" required="required" /><br>
+    	<input type="text" style="width: 400px;" name="Attr15" placeholder="(total liabilities * 365)/( gross profit + depreciation)" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr16" placeholder="(gross profit + depreciation)/ total liabilities" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr19" placeholder="gross profit / sales" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr20" placeholder="(inventory * 365 ) / sales" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr21" placeholder="sales(n) / sales(n-1)" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr22" placeholder="profit on operating activities / total assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr24" placeholder="gross profit (in 3 years) / total assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr25" placeholder="(equity - share capital) / total assets" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr27" placeholder="profit on operating activities / financial expenses" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr28" placeholder="working capital / fixed assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr29" placeholder="logarithm of total assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr30" placeholder="(total liabilities - cash) / sales" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr32" placeholder="(current liabilities * 365) / cost of products sold" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr34" placeholder="operating expenses / total liabilities" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr36" placeholder="total sales / total assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr37" placeholder="(current assets - inventories) / long-term liabilities" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr38" placeholder="constant capital / total assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr39" placeholder="profit on sales / sales" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr4" placeholder="current assets / short-term liabilities" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr40" placeholder="(current assets - inventory - receivables) / short-term liabilities" required="required" /><br>
+        <input type="text" style="width: 450px;" name="Attr41" placeholder="total liabilities / ((profit on operating activities + depreciation) * (12/365))" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr43" placeholder="rotation receivables + inventory turnover in days" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr44" placeholder="(receivables * 365) / sales" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr45" placeholder="net profit / inventory" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr46" placeholder="(current assets - inventory) / short-term liabilities" required="required" /><br>
+		<input type="text" name="Attr5"  style="width: 650px;" placeholder="[(cash + short-term securities + receivables - short-term liabilities) / (operating expenses - depreciation)] * 365" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr50" placeholder="current assets / total liabilities" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr55" placeholder="working capital" required="required" /><br>
+        <input type="text" style="width: 500px;" name="Attr57" placeholder="(current assets - inventory - short-term liabilities) / (sales - gross profit - depreciation)" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr59" placeholder="ong-term liabilities / equity" required="required" /><br>
+        <input type="text" style="width: 400px;" name="Attr6" placeholder="retained earnings / total assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr64" placeholder="sales / fixed assets" required="required" /><br>
+		<input type="text" style="width: 400px;" name="Attr9" placeholder="sales / total assets" required="required" /><br>
+
+        <button type="submit" style="width: 200px;" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
